@@ -13,7 +13,8 @@ Status: requirements interview in progress. Do not treat suggested choices as co
 - Accept feedback and learn from estimated versus actual task durations.
 - Preserve the original daily brief, inbox/follow-up, calendar/meetings, commitments, operations, and AI-coordination vision.
 - Two Claude subscriptions, Business and Personal, each used for Chat, Code, and Cowork; one personal Codex account.
-- Multiple Google/email accounts.
+- Multiple Google/email accounts; Google Calendar across multiple accounts is confirmed.
+- Existing to-do list is kept in Notes and can be pasted directly. Notes product is unspecified; paste-based onboarding avoids requiring a direct integration.
 
 ## Round 1 — answered and incorporated
 
@@ -72,7 +73,7 @@ The owner mentioned wanting lower and pull sessions shortened. No shorter target
 ## Round 3 — scope and onboarding
 
 - Which three outcomes make the first version worth using: daily planning, household routines, email follow-ups, meeting help, or AI-work coordination?
-- What task/calendar/list tools hold existing information? Import versus fresh start?
+- Answered: Google Calendar across multiple accounts, plus an existing Notes to-do list the owner can paste. Next: receive the list for private review and confirm account/calendar selection when connecting. No actual account connection or list import has happened yet.
 - Solo work, staff, contractors, or household sharing? Avoid adding collaboration complexity without a real use case.
 - For food/shopping: simple meal reminders and grocery list, or recipes, pantry information, budgets, and meal planning? Any constraints the owner wants recorded?
 - Which fields should be optional during capture and what feels like too much administration?

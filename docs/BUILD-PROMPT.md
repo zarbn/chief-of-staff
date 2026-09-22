@@ -8,7 +8,7 @@ Project folder: `/Users/agentic/chief-of-staff`
 GitHub repository: `https://github.com/zarbn/chief-of-staff`
 Working product name: Chief of Staff. “Daylight” is the provisional name used in the accepted design, not a final branding requirement.
 
-The owner has two distinct Claude subscriptions: Business and Personal. Both are used for Chat, Code, and Cowork. The owner also has a personal Codex account. Information is spread across multiple Google/email accounts. The exact Claude Business plan and administrator access are not confirmed. Device setup, notification channels, hosting, budget, and which Google accounts are in scope are also not confirmed.
+The owner has two distinct Claude subscriptions: Business and Personal. Both are used for Chat, Code, and Cowork. The owner also has a personal Codex account. Information is spread across multiple Google/email accounts. The owner confirms Google Calendar across multiple accounts as the current calendar system, and a to-do list in Notes that can be pasted for onboarding. The specific Notes product is not confirmed; do not assume a direct Notes integration is required. The exact Claude Business plan and administrator access are not confirmed. Device setup, notification channels, hosting, budget, and which Google accounts are in scope are also not confirmed.
 
 The owner approved the supplied clickable design as the starting point and expects to adjust it as the product develops. Preserve its calm, easily navigable structure. This is a full life-and-business assistant; do not reduce it to a usage dashboard or generic to-do list.
 
@@ -142,9 +142,17 @@ Support captured, ready, scheduled, in progress, waiting, needs review, complete
 
 Support commitments in both directions: “I owe someone” and “someone owes me.” Record the person, promised action, date, source, last checked time, and next follow-up. Show a small decision queue containing the issue, options, recommendation, relevant evidence, and decision deadline.
 
+## 3A. Onboarding from the existing Notes list
+
+The owner can paste the current to-do list directly. Accept unstructured text, headings, bullets, mixed personal/business items, dates, and fragments without requiring cleanup or a template. Preserve the original text privately alongside a reviewable parsed draft. Do not place real notes, personal task lists, or imported calendar content in the source repository or commit history; repository examples use synthetic data.
+
+Propose tasks, projects, errands/shopping items, recurring routines, and reference notes without pretending every line is an actionable commitment. Keep explicit owner deadlines intact; mark inferred categories, suggested durations, and ambiguous dates as suggestions. Never invent a deadline to force a task into a plan. Ask only about ambiguity that affects an important next decision, rather than presenting a long form for every item.
+
+Show a compact review with edit, merge, keep-as-note, and ignore controls before committing a bulk import. Detect repeated pastes without silently deleting distinct tasks. Support undoing an import while preserving any subsequent user edits. Importing text does not authorize calendar writes, message sending, purchases, or AI dispatch. Feed accepted tasks into the weekly/daily planning flow without flooding Today with the entire backlog.
+
 ## 4. Google/email accounts and source information
 
-Support separately authorized Google accounts and label them clearly. Begin with Gmail and Calendar, then add selected Drive documents when useful. Other email providers should fit the connection architecture, but implement them only after confirming the owner’s actual providers.
+Google Calendar is the confirmed calendar source. Support multiple separately authorized Google accounts and multiple selected calendars within each account; label both account and calendar origin clearly. Let the owner select which calendars contribute busy time. Do not assume every subscribed or all-day informational calendar item blocks the entire day, and never interpret missing access as availability. Begin with Gmail and Calendar, then add selected Drive documents when useful. Other email providers should fit the connection architecture, but implement them only after confirming the owner’s actual providers.
 
 For every account, expose connection status, granted capabilities, last successful sync, and reconnection needs. Use supported authorization flows and secure server-side token handling. Do not ask the owner to paste passwords or session cookies into chat.
 
@@ -270,7 +278,7 @@ Design entity relationships for accounts, sources, projects, tasks, commitments,
 
 Phase 0 — foundation: preserve the design; confirm the few necessary setup facts; document integration feasibility; choose the smallest stack; establish local setup, authentication approach, data model, and roadmap.
 
-Phase 1 — useful installed daily app: implement installation/launch, the accepted navigation, persistent quick capture, personal/household routines, task chains, projects, priorities, Today view, simplify mode, automatic flexible-task planning, approval-required errand proposals, weekly gym proposals, post-completion duration questions with a quiet durable queue, basic estimate adaptation, focus sessions, and the guided Sunday weekly-framework review with approval. Include a real local scheduled-reminder path and test its supported lifecycle states; design the data model for eventual Mac–iPhone sync, and validate live sync only when its service and iPhone client are implemented. Restarting the app must not lose tasks or preferences. Keep a simple manual schedule usable before account connections are ready. All visible controls must work or clearly explain their unavailable state.
+Phase 1 — useful installed daily app: implement installation/launch, the accepted navigation, persistent quick capture, reviewable paste-from-Notes onboarding, personal/household routines, task chains, projects, priorities, Today view, simplify mode, automatic flexible-task planning, approval-required errand proposals, weekly gym proposals, post-completion duration questions with a quiet durable queue, basic estimate adaptation, focus sessions, and the guided Sunday weekly-framework review with approval. Include a real local scheduled-reminder path and test its supported lifecycle states; design the data model for eventual Mac–iPhone sync, and validate live sync only when its service and iPhone client are implemented. Restarting the app must not lose tasks or preferences. Keep a simple manual schedule usable before account connections are ready. All visible controls must work or clearly explain their unavailable state.
 
 Phase 2 — connected daily assistance and reliable background operation: connect the first Google account, then a second; add calendar/email synchronization, source links, reply tracking, meeting briefs, follow-up drafts, and one real background notification channel. Verify cross-account isolation and reconnection. Keep LinkedIn capture usable even if direct integration is unavailable.
 
