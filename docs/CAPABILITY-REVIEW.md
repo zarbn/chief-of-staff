@@ -41,7 +41,7 @@ The full EA/CoS scope remains in the build prompt. An interview determines seque
 
 ## Questions with the most impact
 
-- What gym goal, full trip duration, and placement approval rules fit changing weekly availability?
+- Gym weekly split is recorded in `GYM-PLAN.md`; travel, exercise-time scope, and cardio additions are confirmed; clarify Tuesday logistics and placement approval rules.
 - When should the daily plan run, and what hours/anchors are protected?
 - Should planned blocks appear in a separate external calendar, and under which permissions?
 - Which missed tasks or situations currently cause the most difficulty?

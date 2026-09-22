@@ -22,7 +22,7 @@ We are refining the instructions and interviewing you before choosing the final 
 
 We have settled Mac first, iPhone later; automatic flexible-task scheduling with approval for large errands; and short duration questions after completion.
 
-Next we define weekly gym needs, available planning hours, protected personal time, and what the app should do when a reminder goes unanswered.
+Your usual gym week is now recorded, including preparation, walking, and cardio. Your workday wake time is 7:30 a.m. and approximate bedtime is midnight; an editable bedtime setting will help keep plans realistic. Next we define work/class hours, when planning should run, and what to do when a reminder goes unanswered.
 
 Then we agree what the first version must do. The suggested starting point is daily planning, tasks, household routines, reminders, and better time estimates. Email/calendar assistance and deeper AI coordination follow in manageable steps; the original business features remain in scope.
 

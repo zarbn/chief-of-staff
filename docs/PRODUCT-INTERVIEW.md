@@ -20,14 +20,30 @@ Source: owner's direct answers in this conversation, September 22, 2026.
 
 1. **Platforms:** Mac first, then iPhone; not Android. Owner wants eventual data synchronization. Shared data is a product requirement; provider, infrastructure, costs, and timing remain undecided.
 2. **Planning:** automatically arrange flexible tasks. Preserve meetings and other events the owner puts on calendars. Assignments and miscellaneous work belong in the same planner. Substantial errands require approval of a continuous outing block; batch compatible stops rather than squeezing trips into meeting gaps. Friday morning is an example, not a fixed recurring commitment.
-3. **Gym:** needs to fit changing weekly availability. Frequency, preferred time windows, full trip duration, and placement approval policy remain open.
+3. **Gym:** needs to fit changing weekly availability. The owner has since supplied a usual weekly split and initial duration/travel estimates; see the gym follow-up below and `GYM-PLAN.md`. Full trip calculations and placement approval policy remain unresolved.
 4. **Duration feedback:** ask roughly how long after completion; let unanswered questions queue. Timers are not the primary input. Proposed implementation: one non-blocking prompt after owner-confirmed completion, with a quiet durable queue, approximate/custom answers, and skip/later controls. A scheduled end time alone is not confirmation of completion.
 
-## Round 2 — asked, awaiting answers
+## Round 2 — partially answered
 
-- What weekly gym goal should the app plan toward, and how much time does a full trip take including travel and getting ready?
-- When should it prepare the day, which hours may flexible tasks use, and what sleep/meal/downtime windows should be protected?
+- Gym baseline answered: Sunday upper; Monday lower + cardio; Tuesday rest plus 30-minute cardio after class at night; Wednesday push; Thursday pull + cardio; Friday legs/lower + cardio. Preparation approximately 15 minutes. See `GYM-PLAN.md` for all supplied durations and conflicts.
+- Partly answered: wakes at 7:30 a.m. on workdays, bedtime around midnight; wants a mechanism to set an approximate bedtime. Workday identities, non-workday wake time, work/class/commute times, planning run time, quiet hours, meals, and wind-down remain open. Proposed control: editable Tonight’s bedtime with a standing default and one-night override.
 - If a task/reminder is missed, should it give one gentle check-in then replan, keep nudging within chosen hours, or collect it for the next review?
+
+## Gym follow-up — walking, duration scope, and cardio confirmed
+
+Source: owner's follow-up answers, September 22, 2026.
+
+- Upper and pull: 20-minute walk each way. Lower, push, and legs: 10-minute walk each way. This supersedes the initially conflicting walking-distance description.
+- Session lengths are exercise time only; preparation and walking are additional.
+- Add cardio only on specified days. Tuesday is explicitly 30 minutes. Owner subsequently confirmed about 25 minutes each for Monday lower, Thursday pull, and Friday legs.
+
+The owner mentioned wanting lower and pull sessions shortened. No shorter target has been chosen. Saturday, Tuesday class end/cardio venue, cleanup allowance, cross-day flexibility, and gym placement approval are unresolved. See `GYM-PLAN.md` for derived complete lifting-day outing totals; Tuesday logistics remain unresolved.
+
+## Current interview questions — asked, awaiting answers
+
+- Usual work and class days/start/end times with travel, including Tuesday class finish; coming-week schedule is acceptable if variable.
+- Daily plan prepared the night before with a morning refresh, before waking, or on first app open?
+- Reminder behavior: one gentle check-in then replan, repeated nudges in selected hours, or defer to next review?
 
 ## Follow-up interview topics — not yet asked
 
