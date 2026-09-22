@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+dist/
+coverage/
+*.log
+*.sqlite
+*.sqlite3
+*.db
+*.pem
+*.key
+credentials*.json
+token*.json
+.secrets/
