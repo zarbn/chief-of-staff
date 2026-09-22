@@ -27,12 +27,12 @@ The owner specified about 25 minutes for each cardio add-on on Monday lower, Thu
 ## Scheduling behavior
 
 - This is the usual weekly template; actual placement must accommodate changing weekly availability.
-- Use the supplied days as preferences, not permission to move sessions to a different day or rearrange protected calendar events. Cross-day flexibility and gym approval policy remain open.
+- Use the supplied days as preferences, not permission to move sessions to a different day or rearrange protected calendar events. Cross-day flexibility remains open. Weekly gym times require owner approval before reservation.
 - Calculate the full outing from preparation, outward travel, exercise, specified cardio, return travel, and any separately confirmed cleanup needs. Avoid double-counting.
 - Show the complete block needed rather than merely workout time. The lifting-day totals include the confirmed cardio add-ons; Tuesday’s full block remains unresolved.
-- Tuesday cardio depends on class finishing. Class end time, location, cardio venue, and travel remain unknown; do not fabricate a start time or blindly reuse a gym route from another day.
+- Tuesday cardio depends on class finishing. Class ends at 9 p.m.; class location, cardio venue, and travel remain unknown; do not fabricate a start time or blindly reuse a gym route from another day.
 - Learn from rough post-completion feedback while preserving the estimate used when planning. Let the owner optionally indicate which component ran long.
-- Until gym placement policy and required timing details are settled, sessions remain proposals. Do not create external calendar events or assume approvals.
+- Present the week’s proposed gym times for owner approval before reservation. If an approved time becomes infeasible, propose a change; do not silently move it. External calendar writes still require separately authorized scope.
 
 ## Resolved clarifications
 
@@ -43,4 +43,4 @@ The owner specified about 25 minutes for each cardio add-on on Monday lower, Thu
 
 ## Later interview details
 
-Class end time and cardio location on Tuesday; whether usual lifting days can move; approval of weekly gym proposals; whether cleanup/shower time needs an allowance; Saturday preference if it matters to planning; realistic target durations for sessions the owner wants to shorten.
+Class-to-cardio logistics on Tuesday after the confirmed 9 p.m. class end; whether usual lifting days can move; whether cleanup/shower time needs an allowance; Saturday preference if it matters to planning; realistic target durations for sessions the owner wants to shorten.

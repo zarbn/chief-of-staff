@@ -14,7 +14,7 @@ The owner's latest direction takes precedence over the original web-oriented arc
 | Commitment ledger | Keep; core | Track promises in both directions. Avoid duplicate tasks and stale “no reply” claims. |
 | Context memory | Keep; gradually | Editable people/projects/preferences with evidence and conflict handling. Minimize setup and preserve account boundaries. |
 | Research and drafting | Keep; secondary | Available on request. It should not crowd out daily organization or generate unsolicited reading. |
-| Recurring/background work | Keep; core | Daily plan, reminders, deadline sweeps, routine check-ins. Reliable scheduling and missed-run recovery are essential. |
+| Recurring/background work | Keep; core | Sunday framework review, nightly planning, morning adjustment, reminders, and deadline sweeps. Reliable scheduling and missed-run recovery are essential. |
 | Team coordination | Conditional | Retain on roadmap. Establish whether staff/contractors and specific team tools are actually part of the owner's day. |
 | News/topic scan | Optional; deferred | Easy to add later if useful. Default off to avoid distracting from action. |
 | AI account management | Preserve | Required in the existing vision. Begin with assignments/links, add supported live activity and usage. No universal access promises. |
@@ -28,7 +28,7 @@ The owner's latest direction takes precedence over the original web-oriented arc
 2. **Briefings:** do not show every category when there is nothing actionable. An executive-length report is not always a useful ADHD home screen.
 3. **Act then notify:** keep an activity history and digest; do not interrupt the owner for every internal reminder or ledger update.
 4. **Escalation:** pause for consequential decisions or uncertainty about permission. Reading or privately drafting on a sensitive topic does not automatically require a full stop.
-5. **Calendar changes:** distinguish a private tentative task plan from a real calendar event involving others. Flexible internal task arrangement is authorized; long errand outings require approval. External-calendar writes and weekly gym approval rules remain open.
+5. **Calendar changes:** distinguish a private tentative task plan from a real calendar event involving others. Flexible internal task arrangement is authorized; long errand outings require approval. Weekly gym times require approval; external-calendar writes remain an open setup decision.
 6. **Task duration:** checkbox timing is not reliable evidence of active work. Ask lightly, allow correction, and leave missing values unknown.
 7. **AI access:** account ownership does not establish integration availability. Preserve honest manual fallbacks.
 8. **Output style:** concise actions and readable status labels; no dependence on red/yellow/green colors alone. Use supporting detail only when helpful.
@@ -41,11 +41,11 @@ The full EA/CoS scope remains in the build prompt. An interview determines seque
 
 ## Questions with the most impact
 
-- Gym weekly split is recorded in `GYM-PLAN.md`; travel, exercise-time scope, and cardio additions are confirmed; clarify Tuesday logistics and placement approval rules.
-- When should the daily plan run, and what hours/anchors are protected?
+- Gym weekly split is recorded in `GYM-PLAN.md`; travel, exercise-time scope, and cardio additions are confirmed; weekly gym approval is confirmed; clarify Tuesday logistics and cross-day flexibility.
+- Night-before planning plus a morning refresh is confirmed; choose exact times and protect work, class, travel, meals, and sleep.
 - Should planned blocks appear in a separate external calendar, and under which permissions?
 - Which missed tasks or situations currently cause the most difficulty?
-- What should the assistant do when the owner ignores a reminder?
+- Ten-minute repeated nudges plus replanning are confirmed; propose rescheduling at 20 minutes without response; choose quiet hours and class/meeting behavior.
 - Which personal anchors and fixed commitments must planning protect?
 - Is ongoing cloud processing acceptable for daily service when the computer is off?
 

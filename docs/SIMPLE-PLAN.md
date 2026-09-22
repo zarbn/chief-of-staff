@@ -22,9 +22,19 @@ We are refining the instructions and interviewing you before choosing the final 
 
 We have settled Mac first, iPhone later; automatic flexible-task scheduling with approval for large errands; and short duration questions after completion.
 
-Your usual gym week is now recorded, including preparation, walking, and cardio. Your workday wake time is 7:30 a.m. and approximate bedtime is midnight; an editable bedtime setting will help keep plans realistic. Next we define work/class hours, when planning should run, and what to do when a reminder goes unanswered.
+Your usual gym week is now recorded, including preparation, walking, and cardio. Your workday wake time is 7:30 a.m. and approximate bedtime is midnight; an editable bedtime setting will help keep plans realistic. Your usual office days are Tuesday and Wednesday; classes are Monday, Tuesday, and Thursday evenings. The app will plan the night before, adjust in the morning, and nudge every 10 minutes, and help replan missed tasks. Tuesday dinner and travel are protected. After 20 minutes without a response, it proposes moving the task. You approve the week’s gym times before they are reserved.
 
 Then we agree what the first version must do. The suggested starting point is daily planning, tasks, household routines, reminders, and better time estimates. Email/calendar assistance and deeper AI coordination follow in manageable steps; the original business features remain in scope.
+
+## Three planning steps
+
+**Sunday evening:** decide the shape of your week. Confirm office days, approve gym times, and choose suitable blocks for errands.
+
+**Each night:** fit tomorrow's flexible tasks into that framework.
+
+**Each morning:** adjust for anything that changed. Approved gym/errand blocks and your existing events stay protected.
+
+If your week changes, update the plan then; you do not have to wait for the next Sunday.
 
 ## One example
 
