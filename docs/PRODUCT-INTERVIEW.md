@@ -14,19 +14,28 @@ Status: requirements interview in progress. Do not treat suggested choices as co
 - Two Claude subscriptions, Business and Personal, each used for Chat, Code, and Cowork; one personal Codex account.
 - Multiple Google/email accounts.
 
-## Round 1 — asked, awaiting answers
+## Round 1 — answered and incorporated
 
-1. First platforms: Mac first then iPhone companion, Mac + iPhone together, or Mac only for now? Other devices can be specified in free text.
-2. Scheduling autonomy: draft the day for review, automatically arrange flexible tasks while protecting meetings, or suggest priorities for manual placement?
-3. Learning task duration: optional start/finish plus a quick check, rough duration on completion, or timers for most tasks with pause/correction?
+Source: owner's direct answers in this conversation, September 22, 2026.
 
-## Round 2 — daily friction and reminder fit
+1. **Platforms:** Mac first, then iPhone; not Android. Owner wants eventual data synchronization. Shared data is a product requirement; provider, infrastructure, costs, and timing remain undecided.
+2. **Planning:** automatically arrange flexible tasks. Preserve meetings and other events the owner puts on calendars. Assignments and miscellaneous work belong in the same planner. Substantial errands require approval of a continuous outing block; batch compatible stops rather than squeezing trips into meeting gaps. Friday morning is an example, not a fixed recurring commitment.
+3. **Gym:** needs to fit changing weekly availability. Frequency, preferred time windows, full trip duration, and placement approval policy remain open.
+4. **Duration feedback:** ask roughly how long after completion; let unanswered questions queue. Timers are not the primary input. Proposed implementation: one non-blocking prompt after owner-confirmed completion, with a quiet durable queue, approximate/custom answers, and skip/later controls. A scheduled end time alone is not confirmation of completion.
 
-Ask after incorporating Round 1. Use concrete examples and avoid requesting a complete life inventory.
+## Round 2 — asked, awaiting answers
 
-- What three things most often slip through the cracks? Walk through a recent day that felt difficult.
-- Where should reminders reach you when away from the computer, and what should happen when you don't respond: one later nudge, one scheduled check-in, or quiet deferral? Do persistent reminders help or become easy to ignore?
-- Which daily anchors must we protect: wake/sleep window, meals, commute, exercise, caregiving, or other fixed commitments? When should tomorrow/today's plan be prepared?
+- What weekly gym goal should the app plan toward, and how much time does a full trip take including travel and getting ready?
+- When should it prepare the day, which hours may flexible tasks use, and what sleep/meal/downtime windows should be protected?
+- If a task/reminder is missed, should it give one gentle check-in then replan, keep nudging within chosen hours, or collect it for the next review?
+
+## Follow-up interview topics — not yet asked
+
+- For gym: should the owner approve the week's proposed sessions together, or allow automatic placement and rearrangement within agreed rules?
+- For errands: preferred days/locations, usual travel needs, outing approval details, and how to handle a newly added conflict.
+- Should app-planned blocks be written to a separate external calendar or remain internal? Do not infer calendar-write approval from permission to arrange an internal plan.
+- What three things most often slip through the cracks? Walk through a recent difficult day.
+- Until an iPhone app exists, what reminder channel is useful away from the Mac?
 
 ## Round 3 — scope and onboarding
 
@@ -42,7 +51,7 @@ Ask after incorporating Round 1. Use concrete examples and avoid requesting a co
 - First Google accounts and what data each may expose to the app and each AI account.
 - Are private cloud processing and an ongoing operating cost acceptable, so planning can run while the Mac is off? What budget range?
 - Which reminder channels and installation/distribution approach fit the selected devices?
-- Which low-risk actions may run automatically? Confirm external messages and calendar changes remain reviewable.
+- Confirm any additional low-risk automation scope. Flexible internal task placement is already approved; external messages and calendar changes remain reviewable.
 
 ## Decision log
 

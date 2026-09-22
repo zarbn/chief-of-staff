@@ -4,7 +4,7 @@ An installed, private, ADHD-friendly assistant for organizing personal life, bus
 
 ## Project status
 
-Requirements interview and design foundation. The deliverable is an installed app; target platforms and implementation technology are not yet finalized. No application, live account integrations, or notification delivery have been implemented yet.
+Requirements interview and design foundation. The deliverable is an installed app; Mac first and iPhone later with eventual shared data are confirmed; implementation technology and sync infrastructure are not yet finalized. No application, live account integrations, or notification delivery have been implemented yet.
 
 - [Complete build prompt](docs/BUILD-PROMPT.md)
 - [Simple explanation and execution plan](docs/SIMPLE-PLAN.md)
