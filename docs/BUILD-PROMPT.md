@@ -2,7 +2,7 @@
 
 ## Mission and working context
 
-Build a private, ADHD-friendly personal chief of staff for the owner’s life and business. It should help the owner capture commitments, choose priorities, start work, manage schedules and meetings, follow up with people, coordinate AI work, and maintain business operations. It must proactively surface what matters without creating another overwhelming inbox.
+Build an installed, private, ADHD-friendly personal chief of staff app for the owner’s life and business. It should help the owner capture commitments, choose priorities, start work, manage schedules and meetings, follow up with people, coordinate AI work, and maintain business operations. It must proactively surface what matters without creating another overwhelming inbox.
 
 Project folder: `/Users/agentic/chief-of-staff`
 GitHub repository: `https://github.com/zarbn/chief-of-staff`
@@ -11,6 +11,14 @@ Working product name: Chief of Staff. “Daylight” is the provisional name use
 The owner has two distinct Claude subscriptions: Business and Personal. Both are used for Chat, Code, and Cowork. The owner also has a personal Codex account. Information is spread across multiple Google/email accounts. The exact Claude Business plan and administrator access are not confirmed. Device setup, notification channels, hosting, budget, and which Google accounts are in scope are also not confirmed.
 
 The owner approved the supplied clickable design as the starting point and expects to adjust it as the product develops. Preserve its calm, easily navigable structure. This is a full life-and-business assistant; do not reduce it to a usage dashboard or generic to-do list.
+
+## Confirmed scope and interview status
+
+This is an installed application, not a website deliverable. Preserve the accepted design as a reference, but implement a real application lifecycle, local persistence, and platform notifications. The original HTML mockup remains a design prototype only. Platform priorities and implementation technology are awaiting interview answers; do not select a web deployment as the product by default.
+
+Daily life is a first-class requirement: laundry, cooking, meals, groceries, shopping for things, errands, appointments, household administration, and menial tasks must coexist with business commitments. The app must proactively draft a feasible day every day, accept feedback, and improve time estimates using the owner's actual experiences. The amount of autonomous rescheduling remains an open decision.
+
+The supplied chief-of-staff role, operating principles, capabilities, permission tiers, and security rules are reconciled into this brief. See `CAPABILITY-REVIEW.md` for proposed priorities and `PRODUCT-INTERVIEW.md` for decisions that remain open. Recommendations in those documents are not confirmed owner preferences. The current task is requirements refinement and interviewing; do not begin application implementation until that handoff is explicitly requested.
 
 ## Delivery rules
 
@@ -32,7 +40,7 @@ Use five main destinations, matching the accepted design:
 
 Place Connections & alerts in secondary navigation. Keep quick capture available throughout the app. Business/personal filters belong where helpful without adding permanent visual clutter. Add deeper workflow pages under these destinations rather than expanding the main menu endlessly.
 
-Match the design’s warm, restrained visual treatment, generous spacing, readable typography, clear button labels, and limited use of color. Support responsive desktop and phone layouts, light/dark appearance, keyboard navigation, screen readers, reduced motion, visible focus, adequate contrast, and comfortable touch targets. Do not hide essential actions behind hover or unlabeled icons.
+Match the design’s warm, restrained visual treatment, generous spacing, readable typography, clear button labels, and limited use of color. Support adaptive installed-app layouts on the platforms selected in the interview, light/dark appearance, keyboard navigation, screen readers, reduced motion, visible focus, adequate contrast, and comfortable touch targets. Do not hide essential actions behind hover or unlabeled icons.
 
 ## 2. ADHD-friendly behavior
 
@@ -43,12 +51,55 @@ Design for low effort, low shame, and easy recovery. Personalize these defaults 
 - Provide Simplify my view to hide optional panels while keeping navigation and capture available.
 - Capture a task or thought without requiring a project, category, or due date. Include quick text capture first; add voice capture/transcription later with explicit recording controls.
 - Convert vague work into concrete next actions. Preserve the original intent and let the owner edit suggestions.
-- Offer optional short focus sessions, pause/resume, and an easy “make this smaller” action. Timers must behave correctly across refresh and device sleep.
+- Offer optional short focus sessions, pause/resume, and an easy “make this smaller” action. Timers must behave correctly across app restarts, backgrounding, device sleep, and interruptions; an unattended timer is not proof of continuous work.
 - Use estimates, calendar availability, transition buffers, and optional energy input to make achievable plans. Distinguish estimated time from actual time.
 - Treat priority, deadline, scheduled work time, and reminder time as separate things.
 - Make “Not now,” rescheduling, and restarting easy. Avoid guilt messages, punitive streaks, or a constant red overdue wall.
 - Preserve the owner’s explicit priority choices. Recommend changes transparently rather than silently rearranging everything.
 - Support recurring tasks and weekly reviews that help close loose ends and select the next week’s priorities.
+
+## 2A. Everyday life and routines
+
+Treat household and personal tasks as legitimate scheduled work. Business urgency must not automatically displace meals, rest, personal commitments, or essential household routines. Ask the owner which personal anchors to protect.
+
+Support one-off tasks, recurring routines, task chains, shopping lists, and projects. Capture examples: do laundry, plan dinner, cook, buy groceries, order replacement supplies, return a package, book an appointment, clean a room, and finish personal paperwork.
+
+- Laundry can contain collect/sort, start wash, transfer, drying, fold, and put away. Model hands-on effort separately from machine waiting time. Remind about the next step without pretending a cycle has finished unless the owner supplied or confirmed its timing.
+- Cooking can contain choose meal, check ingredients, shopping, preparation, cooking, and cleanup. Keep a simple first version; pantry inventory and detailed meal planning are optional later extensions. Never infer ingredients or purchases from an unsupported source.
+- Shopping can use a lightweight list linked to tasks and trips. Drafting a list is allowed; placing orders, paying, or agreeing to purchases requires explicit authorization.
+- Errands can have a location, opening-hours constraint, travel allowance, and deadline. Group nearby errands only when relevant information is supplied or verified. Do not require continuous location tracking; leave location permissions optional.
+- Passive waiting may overlap another task when the owner considers it safe. Never schedule two hands-on tasks simultaneously or treat attentive cooking as free time.
+- Recurrence can follow a calendar date or completion-based interval. Let the owner skip an occurrence, defer it, or change the routine; avoid creating an unmanageable pile of missed household chores.
+
+Offer starter routines the owner can edit. Do not impose a household system, rigid wake time, or elaborate inventory workflow as a condition of using the app.
+
+## 2B. Everyday planning and recovery
+
+Create one durable daily plan at a configurable planning time. Offer morning review, an optional midday adjustment, and a brief end-of-day reflection. The owner can disable check-ins. Missed planning runs should recover without duplicating plans or dumping old reminders.
+
+Plan from fixed events, real deadlines, task dependencies, estimated effort, travel, setup, transition buffers, rest, meal anchors, location constraints, and optional self-reported energy. Distinguish hard constraints from preferences. Represent the user's selected daily capacity explicitly and leave room for uncertainty.
+
+Show a small achievable plan with an explanation for the next action. Surface when the available time cannot fit the commitments; propose what to postpone, split, delegate, or renegotiate. Never silently change a promised deadline to make the plan fit.
+
+Keep the plan stable enough to trust. Replan when an important constraint changes, when the owner requests it, or when an agreed check-in shows the plan has slipped. Explain what changed. Provide undo, pinned tasks/time blocks, and a clear record of which changes were suggestions versus applied changes.
+
+Include a low-energy or minimum-day option, a rescue-my-day action, and lightweight feedback such as “more tired,” “running late,” “this is too big,” “not today,” or “unexpected errand.” Rescheduling should protect the owner's explicitly chosen non-negotiables and never equate postponement with failure.
+
+## 2C. Learning how long work actually takes
+
+Make estimation learning a core early feature, not a distant AI enhancement. Begin with transparent, simple personalization rather than an opaque model. General estimates are provisional; distinguish owner-provided times, observed history, and system suggestions.
+
+For each task attempt preserve: estimate at planning time, task type, planned start, actual start if known, finish if known, active effort, passive waiting, interruption/pause time, owner corrections, completion status, and observation source. Separate intended start from actual start. Time elapsed between scheduled start and checkbox completion is not automatically task duration.
+
+Accept optional start/pause/finish controls and low-effort retrospective feedback such as “about 15 minutes,” “closer to 30,” or “not sure.” Choose the primary flow in the interview. The app must still work if the owner forgets the timer or does not want to report duration. Missing data stays unknown.
+
+Use comparable completed tasks to improve future estimates, with a transparent baseline and recency weighting or another simple robust method. Show ranges and limited-data status when uncertainty is high. Separate systematic underestimation from long interruptions, changed scope, passive time, and abandoned attempts. Avoid treating a single unusual day as the new normal.
+
+Let the owner correct, exclude, inspect, or reset duration history. Do not infer diagnoses, motivation, productivity scores, or personal traits from timing. Context such as location, equipment, or task size is optional and should only affect estimates when supported by enough useful data.
+
+Save predictions before observing outcomes so calibration can be measured honestly. Track estimate error and whether predicted ranges cover actual durations; compare against a simple baseline using later observations. A manual correction or feedback event should influence future comparable tasks in a testable way without rewriting the original estimate.
+
+An acceptance example: after several corrected laundry-folding attempts take around 25–35 minutes rather than the provisional 10, a future folding task gets a more realistic estimate and the day has enough room. Washing-machine time remains a separate waiting step. Repeated deferral suggests a possible starting obstacle to ask about, not proof the task takes longer.
 
 ## 3. Tasks, commitments, and decisions
 
@@ -72,9 +123,11 @@ Keep an index and useful summaries rather than copying every document indiscrimi
 
 ## 5. Inbox assistance and follow-ups
 
-Help triage incoming requests, extract proposed action items, identify commitments, and draft replies. Link every extracted item to evidence and expose uncertainty. Make corrections easy; avoid duplicate tasks for the same commitment.
+Help triage incoming requests into Needs me, Can delegate, FYI, and Low priority/noise. For Needs me, show the specific ask and a one-line summary. Classification must not silently delete, unsubscribe from, or archive messages. Extract proposed action items, identify commitments, and draft replies. Link every extracted item to evidence and expose uncertainty. Make corrections easy; avoid duplicate tasks for the same commitment.
 
 Distinguish replied, awaiting reply, follow-up due, snoozed, and resolved states. Let the owner review the conversation, approve a draft, choose a specific reminder time, or close the item. Only assert reply status when supported by sufficiently fresh source data.
+
+Allow configurable VIPs and different follow-up thresholds by person, channel, working hours, and urgency. Learn drafting style from owner-selected examples and explicit edits; do not treat every imported message as a style instruction. Flag time-sensitive or materially legal/financial requests for review without pretending to provide professional judgment.
 
 LinkedIn follow-ups are explicitly in scope. First verify a supported, authorized integration. If unavailable, implement manual quick capture with a conversation link and last-reviewed date. Clearly label this as manual tracking; do not claim automatic inbox coverage or use unsupported scraping as a hidden dependency.
 
@@ -86,19 +139,23 @@ Combine authorized calendars while preserving account origin. Handle time zones,
 
 Suggest realistic work blocks and buffers. Distinguish suggestions from confirmed calendar events. Allow accepting or moving a block using the intended calendar. Leave time for transitions and overruns instead of filling all free time.
 
-Prepare meeting briefs from relevant permitted tasks, correspondence, prior notes, and decisions. Include purpose, agenda, open questions, and commitments to review. After meetings, turn user-provided notes or supported transcripts into proposed decisions, tasks, owners, and follow-up drafts. Do not assume meetings are recorded or record without explicit authorization.
+Prepare meeting briefs from relevant permitted tasks, correspondence, prior notes, and decisions. Include purpose, desired outcome, agenda, attendees and relevant relationship history, last interaction, open issues, suggested talking points, and commitments to review. Flag meetings with no known purpose or owner, labeling missing information as unknown. Draft invitations from agreed meeting details without sending them autonomously. After meetings, turn user-provided notes or supported transcripts into proposed decisions, tasks, owners, due dates, unresolved questions, and follow-up drafts. Missing owners or dates must be suggested or left unresolved, never invented as agreed facts. Do not assume meetings are recorded or record without explicit authorization.
 
 ## 7. Proactive reminders and daily briefing
 
-Proactivity is a core feature. Use durable background scheduling so reminders can run when the browser is closed. A local-only version cannot promise phone delivery while its computer is asleep; explain deployment requirements honestly.
+Proactivity is a core feature. Use durable background scheduling so planning, synchronization, and reminders work with the app window closed, subject to actual operating-system and deployment constraints. A local-only version cannot promise phone delivery while its computer is asleep; explain deployment requirements honestly.
 
 Support a morning brief, upcoming meetings, leave-time reminders when explicitly configured, approaching deadlines, promised replies, unanswered follow-ups, stalled tasks, AI work awaiting review, renewals, and a weekly review.
 
 Give reminders an immediate action: open, start, complete, snooze to a concrete time, reschedule, dismiss, or prepare a reply. Routine items default to a digest; time-sensitive commitments can alert individually. Configure notification channels, quiet hours, frequency, and escalation. Avoid repetitive nagging, duplicate cross-device alerts, and notifications after completion or cancellation.
 
-Implement an in-app notification center first. Select desktop/web push, mobile push, or email delivery only after confirming preferred channels and real platform support. Test at least one actual background delivery path before calling external reminders production-ready. Distinguish scheduled, attempted, delivered where verifiable, and failed notifications; do not invent delivery receipts.
+Implement an in-app notification center first. Select native desktop notifications, mobile notifications, or email delivery only after confirming preferred channels and real platform support. Test at least one actual background delivery path before calling external reminders production-ready. Distinguish scheduled, attempted, delivered where verifiable, and failed notifications; do not invent delivery receipts.
 
 Include retry policies, deduplication keys, missed-job recovery, and observable failures. Quiet-hour rules and time-zone changes must affect scheduled reminders correctly. Default notification previews should avoid exposing sensitive message content on lock screens.
+
+The daily briefing should lead with genuinely urgent decisions or actions, then show a compact schedule with purpose/prep, people waiting on the owner, promises in both directions, and important changes since the last brief. Include household anchors and personal commitments, not just business items. Show detail on demand rather than rendering all categories every morning. If nothing needs a decision, omit that section.
+
+Support scheduled deadline sweeps, weekly status/Friday look-ahead, and event-triggered reviews such as a VIP message or an approaching promise. News/topic scanning is optional and deferred unless the owner requests it; it should not add distracting reading to the default morning plan.
 
 ## 8. Claude and Codex coordination
 
@@ -131,11 +188,42 @@ Preserve the full earlier EA/CoS scope through reusable workflows:
 
 These can begin as task/project templates rather than separate elaborate subsystems. Prioritize workflows the owner actually uses and keep the rest explicitly on the roadmap.
 
+## 9A. Context memory, research, and team coordination
+
+Maintain editable records of key people, relationships, active projects, milestones, risks, preferences, and standing decisions. Attach origin, last verified time, and scope to important facts. Separate direct owner statements, connected-source facts, and assistant inferences. When sources materially disagree, retain both and flag the conflict instead of silently overwriting. Allow owner correction and deletion. Do not expose all contextual memory on the home screen.
+
+Keep briefings short while making evidence accessible: source links and compact inference/uncertainty labels can expand into provenance details. Factual research claims require citations; personal preferences can reference the owner's saved instruction. Do not clutter every everyday task with verbose source labels.
+
+Research memos, background briefs, drafts, and checking claims in drafts are available on request after core daily organization works. Distinguish retrieved facts from analysis and flag unsupported/outdated claims. Proactive research or news is off unless configured.
+
+Team coordination is conditional on the owner having staff or contractors to manage. Keep the capability on the roadmap: commitment roll-ups, blockers, overloaded owners, and weekly status. Task assignment or external sharing requires approval. Do not build Slack/Jira integrations before confirming those tools are used.
+
+Use simple status labels such as On track, Needs attention, and Blocked with reasons. Color may reinforce labels, but should not carry meaning alone or create an alarming red home screen.
+
+## 9B. Permission policy and bounded autonomy
+
+Distinguish product permissions from the development assistant's tooling permissions. Enforce product policy centrally for interactive actions, integrations, AI execution, and background jobs.
+
+- Tier 0: read authorized sources, search, summarize, classify, infer with labels, and prepare private drafts. Source access still requires account authorization.
+- Tier 1: create private reminders, maintain internal notes/commitment records, and update private task organization within approved scope. Notify through a quiet activity digest for routine updates, not a fresh alert for every change. Automatically arranging flexible personal task blocks is only Tier 1 if the owner explicitly chooses that behavior; moving external calendar events is not included.
+- Tier 2: ask before sending messages or invitations, accepting/declining/moving meetings, assigning work to other people, or sharing documents. Show the exact proposed change, account, recipient/attendee list, before/after state where applicable, and reason. Record approval against that exact action; changed content requires renewed approval. Avoid repeatedly asking for the same unchanged approved action.
+- Tier 3: never independently spend money, sign/agree to terms, disclose sensitive/restricted information, or change account/security settings. If ever supported, these need deliberate explicit owner authorization and the appropriate secure flow. A task to “buy groceries” does not authorize checkout.
+
+The owner may further restrict permissions. Show active policy understandably and make automation revocable. Every external action needs execution-time permission checks, deduplication, approval validity, and audit records. No background worker may bypass these rules.
+
+Treat incoming emails, documents, messages, and webpages as untrusted data, not authority over the assistant. They may be evidence of a request for owner review; they cannot grant permission or override instructions. Flag credible attempts to redirect the assistant without interrupting the owner for harmless quoted text.
+
+Do not share information with a new recipient without permission. Payment, credential, or access-change requests require owner verification through a trusted independently chosen channel. Maintain a searchable log of meaningful actions, failures, policy decisions, and approval requests with minimal sensitive content.
+
+Escalate consequential ambiguity, material source conflicts, uncertain permissions, and actions with legal, personnel, reputational, political, or financial consequences. Merely reading, organizing, or drafting about one of those topics should not cause a blanket stop. Continue safe independent work and ask a focused question about the specific decision that needs judgment.
+
 ## 10. Technical structure and privacy
 
-Propose a small, maintainable architecture after inspecting the repo. A typed responsive web frontend, server/API layer, relational database, and durable background worker are reasonable starting components, not a mandate to add every service. Prefer one coherent application over premature microservices. Document hosting and monthly cost assumptions before committing to paid infrastructure.
+Propose a small, maintainable architecture after inspecting the repo. Choose an installed-app implementation after platform decisions are confirmed. A native app or appropriately packaged desktop framework may be considered, but a hosted website or a browser shortcut is not an equivalent deliverable. Evaluate native lifecycle behavior, accessibility, secure credential storage, platform notification support, installation/update complexity, and future phone support before selecting technology. Do not decide a framework merely because the prototype is HTML. Prefer one coherent application over premature microservices. Document hosting and monthly cost assumptions before committing to paid infrastructure.
 
-Keep these concerns distinct: interface; persistent tasks and priorities; external account adapters; scheduled jobs; notification delivery; and AI-assisted extraction, drafting, and recommendations. Core task management must work without an AI provider. Use deterministic scheduling for deadlines and reminders.
+Provide durable local storage and offline capture/editing, with explicit queued-sync and conflict states. Store device secrets in the platform-provided secure credential facility. Define behavior when a window closes, the app quits, the device sleeps, connectivity drops, and the app resumes. Verify rather than assume any OS background guarantees. A continuously available service may support daily planning and cross-device notifications even though the user-facing product is an installed app. Decide that infrastructure with the owner; do not imply app-only means no backend.
+
+Keep these concerns distinct: installed interface; persistent tasks and priorities; external account adapters; scheduled jobs; notification delivery; and AI-assisted extraction, drafting, and recommendations. Core task management must work without an AI provider. Use deterministic scheduling for deadlines and reminders.
 
 Provide a clearly labeled demo mode with synthetic data and a real mode with honest connection states. Isolate demo data from real records. Store secrets outside source control, encrypt credentials appropriately, minimize permissions, redact sensitive logs, and provide disconnect/delete controls. Use a secret manager in production and placeholder environment configuration locally.
 
@@ -147,9 +235,9 @@ Design entity relationships for accounts, sources, projects, tasks, commitments,
 
 Phase 0 — foundation: preserve the design; confirm the few necessary setup facts; document integration feasibility; choose the smallest stack; establish local setup, authentication approach, data model, and roadmap.
 
-Phase 1 — useful daily app: implement the accepted navigation, persistent quick capture, tasks, projects, priorities, Today view, simplify mode, focus sessions, basic schedule, in-app reminders, and weekly review. Refreshing the app must not lose tasks or preferences. All visible controls must work or clearly explain their unavailable state.
+Phase 1 — useful installed daily app: implement installation/launch, the accepted navigation, persistent quick capture, personal/household routines, task chains, projects, priorities, Today view, simplify mode, realistic daily plan drafts, feedback, optional duration capture, basic estimate adaptation, focus sessions, and weekly review. Include a real local scheduled-reminder path and test its supported lifecycle states; defer cross-device guarantees until Phase 2. Restarting the app must not lose tasks or preferences. Keep a simple manual schedule usable before account connections are ready. All visible controls must work or clearly explain their unavailable state.
 
-Phase 2 — reliable connections and reminders: connect the first Google account, then a second; add calendar/email synchronization, source links, reply tracking, meeting briefs, follow-up drafts, and one real background notification channel. Verify cross-account isolation and reconnection. Keep LinkedIn capture usable even if direct integration is unavailable.
+Phase 2 — connected daily assistance and reliable background operation: connect the first Google account, then a second; add calendar/email synchronization, source links, reply tracking, meeting briefs, follow-up drafts, and one real background notification channel. Verify cross-account isolation and reconnection. Keep LinkedIn capture usable even if direct integration is unavailable.
 
 Phase 3 — AI coordination: represent all three accounts, assign priorities, track sessions and results through supported integrations, show accurately scoped usage, and handle unknowns. Add supported dispatch only after observation and permission boundaries are reliable.
 
@@ -157,13 +245,15 @@ Phase 4 — deeper operations: expand recurring business templates, selected doc
 
 Test important behaviors: task persistence; capture and completion; keyboard/mobile usability; reminder cancellation/snoozing; time zones and daylight saving; duplicate and missed-job prevention; two-account separation; stale/revoked connections; prompt-injection resistance at action boundaries; accurate usage labels; and preventing unapproved external actions. Use focused unit/integration tests and a few end-to-end journeys, not tests that merely mirror implementation.
 
+Add tests for active versus passive task time, dependencies, recurring chore skips, prediction history/corrections, interruption exclusions, plausible estimate adaptation, infeasible days, fixed-meeting protection, planning idempotency, offline edits, app restart/sleep behavior, and permission policy enforcement. Test that minimal timing feedback is enough and that missing observations are never silently converted to measured durations.
+
 Before claiming completion, demonstrate a real end-to-end journey: capture a commitment, schedule a reminder, close the interface, receive the configured reminder, act on it, and confirm no duplicate reminder appears. A simulated journey is suitable for design review but must be labeled as such.
 
 For every milestone, deliver working code, setup instructions, relevant checks, a plain-language summary, and an honest list of remaining work. Do not declare the full product finished after only building the interface.
 
 ## 12. First implementation response
 
-Briefly explain what exists and what the first milestone will produce. Identify only the setup questions needed now: Claude business plan/admin access, device environment, first Google accounts, preferred reminder channel, and deployment/budget needs. Build independent foundation work while those answers are pending. Keep the owner’s experience simple and the full vision visible in the roadmap.
+Do not treat unfinished interview choices as approvals. Keep capability priorities provisional until reconciled with the owner. When implementation is authorized, briefly explain what exists and what the first milestone will produce. Identify only the setup questions needed now: installed-app platforms, daily planning/autonomy preferences, household priorities, duration-feedback preferences, Claude business plan/admin access, device environment, first Google accounts, preferred reminder channel, and deployment/budget needs. Build independent foundation work while those answers are pending. Keep the owner’s experience simple and the full vision visible in the roadmap.
 
 ## Documentation starting points — verify before implementation
 

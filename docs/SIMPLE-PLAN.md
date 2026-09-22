@@ -1,36 +1,37 @@
 # The plan, in plain English
 
-We are building one calm place to run your life and business.
+We are building an app you install. It will help run your whole day: work, chores, meals, shopping, appointments, and everything you need to remember.
 
-It should tell you what matters today, remember what you promised, help you get started, and remind you when something needs attention.
+The design you approved is still our starting point. It is currently a clickable picture of how the app can work, not the actual installed app.
 
 ## The pieces
 
-1. **The screen:** what you see and click. Five simple sections: Today, My tasks, Schedule, Follow-ups, and AI work.
-2. **The memory:** where your tasks, notes, priorities, and preferences are saved.
-3. **The connections:** links to your email, calendars, Claude accounts, and Codex. Each account keeps its own identity and access.
-4. **The helper:** AI that helps sort information, break work into smaller steps, prepare drafts, and suggest what to do next.
-5. **The alarm clock:** a background system that checks dates and sends reminders even when the app is closed. This needs a running service and a working notification channel.
-6. **The keys and locks:** sign-in and permissions that control what the app and each AI account can access.
+1. **The app:** the calm screen you open to see what matters next.
+2. **The memory:** saves tasks, promises, routines, and your preferences.
+3. **The planner:** fits things into the time you actually have, leaving room for breaks and surprises.
+4. **The learning:** remembers your feedback. If folding laundry usually takes 30 minutes, it stops planning as if it takes 10.
+5. **The connections:** brings in email, calendars, and supported information from your AI accounts.
+6. **The reminders:** alerts you at useful times and lets you act, postpone, or adjust.
+7. **The locks:** keeps account information separate and makes sure important outside actions need your approval.
 
-GitHub is the project’s shared storage and change history. Your computer folder is where we work on it. GitHub alone does not run the app or send reminders.
+Some work may happen in a private background service so help continues when your computer is off. We will choose that setup with you. An installed app can still use an online service behind the scenes.
 
-## The order
+## What we're doing now
 
-**First:** make a useful app where you can capture tasks, choose priorities, and plan your day. Keep the design you approved.
+We are refining the instructions and interviewing you before choosing the final technology or starting the actual app. The interview happens in small rounds.
 
-**Next:** connect email and calendars. Make follow-ups, meeting preparation, and real reminders work.
+First we decide which devices matter, how actively the app should plan, and what feedback you are comfortable giving it.
 
-**Then:** bring your two Claude accounts and Codex into the same work view. Show the activity and usage they actually allow us to see.
+Next we learn what you most often forget, which reminders work for you, and what a realistic day looks like.
 
-**After that:** add deeper business routines, such as onboarding, invoice follow-ups, and renewals. Adjust the app around how you actually use it.
+Then we agree what the first version must do. The suggested starting point is daily planning, tasks, household routines, reminders, and better time estimates. Email/calendar assistance and deeper AI coordination follow in manageable steps; the original business features remain in scope.
 
-We can record priorities for every account from the start. Fully automatic tracking depends on what each service allows. Anything unavailable will say so clearly.
+## One example
 
-## What is ready at this handoff
+You add “do laundry.” The app helps break it into starting the wash, transferring it, and putting it away. It knows machine waiting time is different from your working time. If you tell it folding took longer than expected, it allows more time next time.
 
-- A complete build prompt describing the whole product.
-- A saved copy of the design you approved.
-- This simple explanation of the plan.
+If the day goes off track, you can say “I'm running late.” It helps you choose a smaller plan without changing your meetings or promises behind your back.
 
-The working app has not been built yet. This handoff gives development a clear starting point.
+## What is ready
+
+The updated build prompt, a capability review, the interview record, and the approved design. The installed app is not built yet.
