@@ -4,7 +4,7 @@
 
 The owner requires persistent backend storage for personalized preferences. Store them as structured, user-owned application data, available to planning, reminders, integrations, and AI assistance. Neither the chat history, a giant prompt, nor source-code constants are the runtime source of truth. Requirements documents describe behavior; actual personal records belong in the private application database, not GitHub.
 
-“Backend” describes the storage and logic, not a requirement to host personal data in the cloud. The Mac app can use a local database first if that is the chosen architecture. Eventual approved sync can replicate shared preferences to the iPhone while preserving account boundaries. Hosting/privacy/cost choices remain open.
+“Backend” describes the storage and logic, not a requirement to host personal data in the cloud. The owner has now chosen a local Mac database for the first release. Eventual approved sync can replicate shared preferences to the iPhone while preserving account boundaries. Cloud app hosting/sync is deferred. Hosted AI processing/privacy and API cost choices remain separate and unresolved.
 
 ## What to store
 
@@ -13,6 +13,7 @@ The owner requires persistent backend storage for personalized preferences. Stor
 - **Planning rules:** fixed versus flexible items, capacity/buffers, nightly/morning cadence, Sunday review settings, priorities, approved gym/errand behavior, and selected calendar busy-time rules.
 - **Reminder policy:** channels, cadence, missed-task transition, quiet hours, snooze options, suppression rules, and device delivery preferences.
 - **Learning data:** prediction snapshots, owner-reported actual durations, correction/exclusion history, task categories, inferred estimates, sample count, and uncertainty. Raw observations and calculated estimates are distinct records.
+- **Voice:** invocation mode, spoken-response preference, provider-processing consent, transcript retention, audio-device preference, and usage budget. Default to no recording until the owner starts a session; keep credentials outside profile data.
 - **Connection configuration:** account/calendar identifiers, labels, capabilities, and sharing boundaries. Authentication tokens stay in the secure credential store, not ordinary preference values.
 - **Temporary overrides:** tonight's bedtime, this week's workdays, an exception to a routine, or a temporary reminder pause, each with clear start/end dates.
 - **Approval and permission policy:** allowable actions and their scope, with auditable explicit changes. Keep this separate from learned behavioral suggestions. A preference is never a backdoor grant of new data access or external-action permissions.

@@ -14,7 +14,7 @@ The owner approved the supplied clickable design as the starting point and expec
 
 ## Confirmed scope and interview status
 
-This is an installed application, not a website deliverable. Preserve the accepted design as a reference, but implement a real application lifecycle, local persistence, and platform notifications. The original HTML mockup remains a design prototype only. Platform sequence is confirmed: Mac first, then iPhone, with eventual shared data; Android is not in scope. Implementation technology and sync infrastructure remain undecided; do not select a web deployment as the product by default.
+This is an installed application, not a website deliverable. Preserve the accepted design as a reference, but implement a real application lifecycle, local persistence, and platform notifications. The original HTML mockup remains a design prototype only. Platform sequence is confirmed: Mac first, then iPhone, with eventual shared data; Android is not in scope. Initial app data storage is confirmed Mac-only; no hosted application database or phone client in the first release. A later iPhone companion may offer a simpler Today view, basic capture/input, and actionable notifications rather than full desktop parity. Implementation technology and future sync infrastructure remain undecided; do not select a web deployment as the product by default.
 
 Daily life is a first-class requirement: laundry, cooking, meals, groceries, shopping for things, errands, appointments, household administration, and menial tasks must coexist with business commitments. The app must proactively draft a feasible day every day, accept feedback, and improve time estimates using the owner's actual experiences. The owner authorizes automatic arrangement of flexible tasks inside the app. Protect all owner-created calendar events, not just meetings. Substantial errand outings require approval of a proposed continuous block. Weekly gym planning must adapt to changing availability. Duration learning uses a short retrospective question after completion, with unanswered questions queued.
 
@@ -24,9 +24,9 @@ The supplied chief-of-staff role, operating principles, capabilities, permission
 
 The product brief is sufficiently defined for the first implementation milestone: an installed Mac app with persistent tasks, paste-based onboarding, the accepted interface, Sunday framework approval, nightly/morning planning, household routines, gym/errand approvals, reminder state handling, and retrospective duration learning. iPhone sync, external integrations, and more extensive business assistance remain part of the staged scope. Requirements readiness does not mean those integrations have been verified or the app is implemented.
 
-Resolve three consequential configuration decisions before dependent work:
+Mac-only application storage is confirmed. Resolve remaining consequential configuration decisions before dependent work:
 
-1. **Data and background operation:** local-only initially or an owner-approved private cloud service for eventual sync and always-available background work? Confirm privacy boundaries and an operating-cost ceiling before deploying paid services or transmitting personal data.
+1. **AI/voice processing:** local application storage is settled. Separately confirm whether hosted AI voice may transmit audio/relevant context, and choose an API budget before live paid calls. Mac-only storage is not a guarantee of offline AI. Cloud app hosting and phone sync are deferred.
 2. **Google Calendar write-back:** read selected calendars and keep the plan internal, or also write approved blocks to a separate owner-selected app calendar? Until configured, use read-only calendar integration and internal plan changes; never infer external-write permission from scheduling approval.
 3. **Reminder delivery:** native Mac notifications are the first proposed channel; decide whether and how to reach the owner away from the Mac before an iPhone companion exists. Configure quiet hours and behavior during meetings/classes before live notification rollout.
 
@@ -63,7 +63,7 @@ Design for low effort, low shame, and easy recovery. Personalize these defaults 
 - Show one next step, not the entire backlog, on the default home screen.
 - Explain a recommendation in a short factual sentence: “Due tomorrow; Jordan is waiting.”
 - Provide Simplify my view to hide optional panels while keeping navigation and capture available.
-- Capture a task or thought without requiring a project, category, or due date. Include quick text capture first; add voice capture/transcription later with explicit recording controls.
+- Capture a task or thought without requiring a project, category, or due date. Include quick text capture and a named in-app voice milestone for conversational task management, planning, and email drafting. Implement explicit recording controls and the shared action/permission layer; see `VOICE.md`.
 - Convert vague work into concrete next actions. Preserve the original intent and let the owner edit suggestions.
 - Offer optional short focus sessions, pause/resume, and an easy “make this smaller” action. Timers must behave correctly across app restarts, backgrounding, device sleep, and interruptions; an unattended timer is not proof of continuous work.
 - Use estimates, calendar availability, transition buffers, and optional energy input to make achievable plans. Distinguish estimated time from actual time.
@@ -210,6 +210,14 @@ The daily briefing should lead with genuinely urgent decisions or actions, then 
 
 Support scheduled deadline sweeps, weekly status/Friday look-ahead, and event-triggered reviews such as a VIP message or an approaching promise. News/topic scanning is optional and deferred unless the owner requests it; it should not add distracting reading to the default morning plan.
 
+## 7A. In-app voice assistant
+
+The owner requests speaking to the app to add/manage tasks, ask about plans, provide feedback, prepare email responses, and execute permitted actions. See `VOICE.md` for feasibility, interaction, security, privacy, and acceptance requirements. This is a voice interface to the same saved profile and validated action layer, not a separate memory or permission system.
+
+The supported OpenAI approach is API-based speech interaction with application tools, not exporting the ChatGPT consumer app or downloading its voice model. Model choice remains implementation work after verifying current official documentation. API voice uses internet/provider processing and a separate metered API configuration; whether the owner accepts that processing and the preferred Talk/session mode are pending answers. Do not infer consent to audio transmission or spending from asking about feasibility.
+
+Start with task capture, plan questions, and duration feedback after the persistent action layer works. Add email drafting when its connection is ready. Respect all existing approvals for email sending, calendar changes, gym/errand blocks, and sharing. Show listening state, stop/mute, clear action receipts, text fallback, uncertainty, and actual execution status. Handle interruptions and retries without duplicate or premature actions.
+
 ## 8. Claude and Codex coordination
 
 Model provider, product surface, authenticated account, device/environment, session, task assignment, and run as separate concepts. The three accounts must remain distinct. An account with Chat, Code, and Cowork is not automatically three independent usage budgets.
@@ -257,7 +265,7 @@ Use simple status labels such as On track, Needs attention, and Blocked with rea
 
 The owner explicitly requires backend storage of personalized preferences. Implement a structured private profile/preferences store as the runtime source of truth, with editable Settings → My preferences. See `PREFERENCES.md` for the full design. This includes usual work/class/gym/household routines, planning rules, reminder settings, wake/bedtime targets, account boundaries, and dated exceptions. Keep tasks, plans, permission policies, and duration observations as linked but distinct records.
 
-The database can be local to the Mac initially under the selected architecture; “backend storage” does not itself authorize cloud transmission. Design eventual shared preference sync to the iPhone with device-scoped notification settings. Never persist real personal data as source-code constants or repository fixtures.
+The initial database must be local to the Mac, as selected by the owner. API processing and later sync are separate decisions; this local-storage choice does not authorize transmitting data to new services. Design eventual shared preference sync to the iPhone with device-scoped notification settings. Never persist real personal data as source-code constants or repository fixtures.
 
 Distinguish explicit owner rules, imported facts, learned estimates, proposed defaults, and unknown values. Preserve provenance, versions, effective dates, and correction history. Temporary weekly/daily changes override ordinary defaults only within their scope; they cannot override permissions or silently displace protected events and approved blocks. Learning from task duration must not silently change approval policies.
 
@@ -286,9 +294,9 @@ Propose a small, maintainable architecture after inspecting the repo. Choose an 
 
 Design eventual Mac–iPhone synchronization from the beginning without building the iPhone interface in the first release. Sync shared tasks, priorities, plans, routines, approvals, feedback queue/answers, and estimate history under the owner's authenticated identity. Use stable IDs, versioned records, deletion markers, queued offline changes, and conflict handling that preserves user decisions. Separate device-specific notification/appearance preferences from shared business state.
 
-An item completed or a duration question answered on one device must not remain actionable on the other after synchronization. Use cross-device deduplication for jobs, prompts, and notifications. Do not allow two planners to compete and repeatedly rearrange the same day. Mark stale/offline views and avoid silently overwriting a newer user edit. Keep credentials in the appropriate secure device or backend store rather than treating provider tokens as ordinary synced task data. Sync infrastructure, operating costs, and hosting are still open decisions; do not claim instant delivery while a device is offline.
+An item completed or a duration question answered on one device must not remain actionable on the other after synchronization. Use cross-device deduplication for jobs, prompts, and notifications. Do not allow two planners to compete and repeatedly rearrange the same day. Mark stale/offline views and avoid silently overwriting a newer user edit. Keep credentials in the appropriate secure device or backend store rather than treating provider tokens as ordinary synced task data. Sync infrastructure, operating costs, and hosting are deferred until the future phone phase; do not claim instant delivery while a device is offline.
 
-Provide durable local storage and offline capture/editing, with explicit queued-sync and conflict states. Store device secrets in the platform-provided secure credential facility. Define behavior when a window closes, the app quits, the device sleeps, connectivity drops, and the app resumes. Verify rather than assume any OS background guarantees. A continuously available service may support daily planning and cross-device notifications even though the user-facing product is an installed app. Decide that infrastructure with the owner; do not imply app-only means no backend.
+Provide durable local storage and offline capture/editing, with explicit queued-sync and conflict states. Store device secrets in the platform-provided secure credential facility. Define behavior when a window closes, the app quits, the device sleeps, connectivity drops, and the app resumes. Verify rather than assume any OS background guarantees. The first release has local background scheduling and resume/catch-up behavior, with explicit limits when the Mac sleeps, is off, or loses connectivity. No always-available hosted app worker is authorized now. A later approved service may support cross-device sync and phone alerts; choose it when the phone phase begins.
 
 Keep these concerns distinct: installed interface; persistent tasks and priorities; external account adapters; scheduled jobs; notification delivery; and AI-assisted extraction, drafting, and recommendations. Core task management must work without an AI provider. Use deterministic scheduling for deadlines and reminders.
 
@@ -304,11 +312,15 @@ Phase 0 — foundation: preserve the design; confirm the few necessary setup fac
 
 Phase 1 — useful installed daily app: implement installation/launch, the accepted navigation, persistent personal profile/preferences with editable settings, quick capture, reviewable paste-from-Notes onboarding, personal/household routines, task chains, projects, priorities, Today view, simplify mode, automatic flexible-task planning, approval-required errand proposals, weekly gym proposals, post-completion duration questions with a quiet durable queue, basic estimate adaptation, focus sessions, and the guided Sunday weekly-framework review with approval. Include a real local scheduled-reminder path and test its supported lifecycle states; design the data model for eventual Mac–iPhone sync, and validate live sync only when its service and iPhone client are implemented. Restarting the app must not lose tasks or preferences. Keep a simple manual schedule usable before account connections are ready. All visible controls must work or clearly explain their unavailable state.
 
-Phase 2 — connected daily assistance and reliable background operation: connect the first Google account, then a second; add calendar/email synchronization, source links, reply tracking, meeting briefs, follow-up drafts, and one real background notification channel. Verify cross-account isolation and reconnection. Keep LinkedIn capture usable even if direct integration is unavailable.
+Phase 1B — in-app voice: after the shared task/profile action layer works, implement voice capture and spoken planning assistance using the confirmed provider/privacy choice and configured budget. Keep email actions disconnected until their integration is ready. Verify real microphone-to-action flows and all permission boundaries.
+
+Phase 2 — connected daily assistance and reliable local background operation: connect the first Google account, then a second; add calendar/email synchronization, source links, reply tracking, meeting briefs, follow-up drafts, and one real background notification channel. Verify cross-account isolation and reconnection. Keep LinkedIn capture usable even if direct integration is unavailable.
 
 Phase 3 — AI coordination: represent all three accounts, assign priorities, track sessions and results through supported integrations, show accurately scoped usage, and handle unknowns. Add supported dispatch only after observation and permission boundaries are reliable.
 
-Phase 4 — deeper operations: expand recurring business templates, selected document retrieval, better planning, additional communication sources, voice capture, and personalized reminder behavior based on feedback.
+Phase 4 — deeper operations: expand recurring business templates, selected document retrieval, better planning, additional communication sources and personalized reminder behavior based on feedback.
+
+Phase 5 — lightweight iPhone companion, when requested: shared Today view, basic task/note capture, completion/duration feedback, and actionable reminders. Full desktop parity is not required. Select and authorize sync infrastructure then, handle offline/stale data clearly, and test cross-device changes and notification deduplication.
 
 Test important behaviors: task persistence; capture and completion; keyboard/mobile usability; reminder cancellation/snoozing; time zones and daylight saving; duplicate and missed-job prevention; two-account separation; stale/revoked connections; prompt-injection resistance at action boundaries; accurate usage labels; and preventing unapproved external actions. Use focused unit/integration tests and a few end-to-end journeys, not tests that merely mirror implementation.
 
@@ -322,12 +334,15 @@ For every milestone, deliver working code, setup instructions, relevant checks, 
 
 The core brief is ready for implementation once the owner requests that step. Do not treat a readiness question as a request to launch the build. When implementation is requested, inspect the repository, propose the smallest suitable installed-app stack, and implement a working foundation in coherent increments.
 
-Begin with persistent profile/preferences and task capture/import review, the approved navigation, and a working Today screen; then add weekly/daily scheduling and its tested approval/reminder rules. Keep the broader roadmap intact. Resolve the three consequential decisions in the readiness section before the work that depends on them, but continue independent foundation work with synthetic data and honest disconnected states.
+Begin with persistent profile/preferences and task capture/import review, the approved navigation, and a working Today screen; then add weekly/daily scheduling and its tested approval/reminder rules. Keep the broader roadmap intact. Resolve the remaining consequential decisions in the readiness section before the work that depends on them, but continue independent foundation work with synthetic data and honest disconnected states.
 
 Do not re-ask settled decisions or require a complete personal schedule before building configurable behavior. Routine timing details belong in onboarding/settings. Never interpret an unanswered question as permission for paid services, external calendar writes, personal-data transmission, or message sending. Report what works, what is simulated, and what remains unconnected in plain language.
 
 ## Documentation starting points — verify before implementation
 
+- OpenAI audio/voice: https://developers.openai.com/api/docs/guides/audio
+- OpenAI conversational voice: https://developers.openai.com/api/docs/guides/live
+- OpenAI Realtime tools: https://developers.openai.com/api/docs/guides/realtime-conversations
 - Google authorization: https://developers.google.com/identity/protocols/oauth2/web-server
 - Codex App Server: https://learn.chatgpt.com/docs/app-server
 - Claude Code monitoring: https://code.claude.com/docs/en/monitoring-usage

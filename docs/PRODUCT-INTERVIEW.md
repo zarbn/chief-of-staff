@@ -21,7 +21,7 @@ Status: core product brief ready for a first implementation milestone; consequen
 
 Source: owner's direct answers in this conversation, September 22, 2026.
 
-1. **Platforms:** Mac first, then iPhone; not Android. Owner wants eventual data synchronization. Shared data is a product requirement; provider, infrastructure, costs, and timing remain undecided.
+1. **Platforms:** Mac first, then iPhone; not Android. Owner wants eventual data synchronization. Shared data is a product requirement; initial application database/storage is now confirmed Mac-only. Later iPhone support may be a basic companion for viewing, capture, and proactive notifications; sync provider/infrastructure/costs are deferred.
 2. **Planning:** automatically arrange flexible tasks. Preserve meetings and other events the owner puts on calendars. Assignments and miscellaneous work belong in the same planner. Substantial errands require approval of a continuous outing block; batch compatible stops rather than squeezing trips into meeting gaps. Friday morning is an example, not a fixed recurring commitment.
 3. **Gym:** needs to fit changing weekly availability. The owner has since supplied a usual weekly split and initial duration/travel estimates; see the gym follow-up below and `GYM-PLAN.md`. Complete lifting-day outing lengths are recorded. Weekly gym times require owner approval; Tuesday cardio logistics remain unresolved.
 4. **Duration feedback:** ask roughly how long after completion; let unanswered questions queue. Timers are not the primary input. Proposed implementation: one non-blocking prompt after owner-confirmed completion, with a quiet durable queue, approximate/custom answers, and skip/later controls. A scheduled end time alone is not confirmation of completion.
@@ -66,11 +66,20 @@ The owner mentioned wanting lower and pull sessions shortened. No shorter target
 
 ## Personalized preferences — confirmed requirement
 
-The owner explicitly requested backend storage for personalized preferences. `PREFERENCES.md` defines structured private data, usual rules versus dated exceptions, provenance, learning versus explicit decisions, editing/reset, controlled replanning, and eventual sync. A local database can satisfy storage in the initial Mac app; the requirement does not decide cloud hosting. This belongs in the first implementation foundation.
+The owner explicitly requested backend storage for personalized preferences. `PREFERENCES.md` defines structured private data, usual rules versus dated exceptions, provenance, learning versus explicit decisions, editing/reset, controlled replanning, and eventual sync. The owner has now selected local Mac-only application storage for the initial release; phone sync/cloud app hosting are deferred. This belongs in the first implementation foundation.
+
+## Mac-only storage and voice — September 23, 2026
+
+- Keep the application and its database on the Mac for now.
+- Retain future iPhone support; a simpler viewing/basic-input/proactive-notification companion is acceptable. Do not require full desktop feature parity.
+- Add in-app voice for task operations, planning, and email drafting; the owner asked about using ChatGPT's voice/AI. Official API voice capabilities were checked; consumer-app/model export is not the documented integration approach.
+- Asked: is local storage with hosted AI audio/context processing and metered API costs acceptable, or must voice processing also stay on-device?
+- Asked: Talk button/keyboard shortcut or an explicitly started hands-free session until ended?
+- No voice sessions, paid calls, microphone capture, account connections, or cloud deployment have been enabled. See `VOICE.md`.
 
 ## Readiness review
 
-The main product behavior is defined. Three setup decisions deserve priority: local/private-cloud operation and budget; internal-only plans versus authorized Google Calendar write-back; and notification channels/quiet-time rules. Do not let lower-priority personal schedule questions delay independent app development once requested.
+The main product behavior is defined. Local Mac-only application storage is confirmed. Remaining setup decisions concern hosted voice processing/API budget, internal plans versus Google Calendar write-back, and notification/quiet-time rules. Do not let lower-priority personal schedule questions delay independent app development once requested.
 
 Exact personal routine times remain editable onboarding settings. Provider-specific capabilities are verified at their integration milestone. Real task intake remains private; date/status ambiguities affect scheduling those items, not app-building readiness. Retain separately confirmed tasks even when labels appear similar.
 
@@ -93,7 +102,7 @@ Exact personal routine times remain editable onboarding settings. Provider-speci
 
 - Claude Business plan and administrator access; which devices run Claude/Codex?
 - First Google accounts and what data each may expose to the app and each AI account.
-- Are private cloud processing and an ongoing operating cost acceptable, so planning can run while the Mac is off? What budget range?
+- Initial app storage is local; hosted sync/always-available workers are deferred. Ask separately about hosted AI/voice processing and API budget before its milestone.
 - Which reminder channels and installation/distribution approach fit the selected devices?
 - Confirm any additional low-risk automation scope. Flexible internal task placement is already approved; external messages and calendar changes remain reviewable.
 

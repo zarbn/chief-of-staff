@@ -1,6 +1,6 @@
 # The plan, in plain English
 
-We are building a Mac app first, then an iPhone app. Your tasks, plans, and history will eventually sync between them. It will help run your whole day: work, chores, meals, shopping, appointments, and everything you need to remember.
+We are building a Mac app first, then an iPhone app. For now, the app’s saved data stays on your Mac. Later, a simple iPhone companion can show your day, accept quick input, and deliver reminders using a sync setup we choose then. It will help run your whole day: work, chores, meals, shopping, appointments, and everything you need to remember.
 
 The design you approved is still our starting point. It is currently a clickable picture of how the app can work, not the actual installed app.
 
@@ -14,17 +14,23 @@ The design you approved is still our starting point. It is currently a clickable
 6. **The reminders:** alerts you at useful times and lets you act, postpone, or adjust.
 7. **The locks:** keeps account information separate and makes sure important outside actions need your approval.
 
-Some work may happen in a private background service so help continues when your computer is off. We will choose that setup with you. An installed app can still use an online service behind the scenes.
+The first version runs on your Mac. It cannot promise to perform new work while the Mac is off. Online AI voice is a separate option: the app can store your data locally while sending a spoken request and needed context to an AI service. That needs internet access, suitable API access, and a usage budget.
 
 ## What we're doing now
 
-The core instructions are ready to build from. The app has not been built yet. We still need to choose where data lives, whether approved blocks appear in Google Calendar, and how reminders reach you. Smaller routine details can be chosen in the app’s settings.
+The core instructions are ready to build from. The app has not been built yet. Mac-only storage is settled. We still need to confirm voice processing/privacy and usage budget, whether approved blocks appear in Google Calendar, and notification settings. Smaller routine details can be chosen in the app’s settings.
 
 We have settled Mac first, iPhone later; automatic flexible-task scheduling with approval for large errands; and short duration questions after completion.
 
 Your usual gym week is now recorded, including preparation, walking, and cardio. Your workday wake time is 7:30 a.m. and approximate bedtime is midnight; an editable bedtime setting will help keep plans realistic. Your usual office days are Tuesday and Wednesday; classes are Monday, Tuesday, and Thursday evenings. The app will plan the night before, adjust in the morning, and nudge every 10 minutes, and help replan missed tasks. Tuesday dinner and travel are protected. After 20 minutes without a response, it proposes moving the task. You approve the week’s gym times before they are reserved.
 
 Then we agree what the first version must do. The suggested starting point is daily planning, tasks, household routines, reminders, and better time estimates. Email/calendar assistance and deeper AI coordination follow in manageable steps; the original business features remain in scope.
+
+## Talking to the app
+
+The proposed voice feature lets you speak a request, have the app understand it, and use the same task/email/calendar controls as typing. For example: “Add an errand,” “What’s next?” or “Draft a reply.” Sending a message still follows your approval rules.
+
+We would build this with supported voice APIs rather than export the ChatGPT app. A Talk button is the recommended starting point; invocation and online processing choices are still being confirmed.
 
 ## Three planning steps
 
