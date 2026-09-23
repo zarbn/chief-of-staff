@@ -20,6 +20,20 @@ Daily life is a first-class requirement: laundry, cooking, meals, groceries, sho
 
 The supplied chief-of-staff role, operating principles, capabilities, permission tiers, and security rules are reconciled into this brief. See `CAPABILITY-REVIEW.md` for proposed priorities and `PRODUCT-INTERVIEW.md` for decisions that remain open. Recommendations in those documents are not confirmed owner preferences. The current task is requirements refinement and interviewing; do not begin application implementation until that handoff is explicitly requested.
 
+## Readiness and remaining decisions
+
+The product brief is sufficiently defined for the first implementation milestone: an installed Mac app with persistent tasks, paste-based onboarding, the accepted interface, Sunday framework approval, nightly/morning planning, household routines, gym/errand approvals, reminder state handling, and retrospective duration learning. iPhone sync, external integrations, and more extensive business assistance remain part of the staged scope. Requirements readiness does not mean those integrations have been verified or the app is implemented.
+
+Resolve three consequential configuration decisions before dependent work:
+
+1. **Data and background operation:** local-only initially or an owner-approved private cloud service for eventual sync and always-available background work? Confirm privacy boundaries and an operating-cost ceiling before deploying paid services or transmitting personal data.
+2. **Google Calendar write-back:** read selected calendars and keep the plan internal, or also write approved blocks to a separate owner-selected app calendar? Until configured, use read-only calendar integration and internal plan changes; never infer external-write permission from scheduling approval.
+3. **Reminder delivery:** native Mac notifications are the first proposed channel; decide whether and how to reach the owner away from the Mac before an iPhone companion exists. Configure quiet hours and behavior during meetings/classes before live notification rollout.
+
+Other unanswered personal details are editable onboarding settings, not prerequisites to building the app shell/data model: Sunday review clock time, nightly/morning run times, week boundary, non-workday wake time, travel/cleanup buffers, and weekly exceptions. Show unset settings honestly; do not run scheduled automation with invented agreed times.
+
+Provider access questions belong to each connection milestone: which Google accounts/calendars, Claude business plan/admin access, and supported Claude/Codex surfaces. Build useful manual fallbacks and synthetic-data demonstrations while awaiting those answers. Real personal task deadlines/status may still need clarification before scheduling actual work; they do not block product implementation.
+
 ## Delivery rules
 
 Inspect repository instructions and existing files before changing them. Preserve user work. Make a brief plan, then implement working increments and document what is complete, partial, or blocked. Do not claim a mocked connection, simulated task, queued notification, or drafted message has actually synced, run, delivered, or sent.
@@ -148,7 +162,7 @@ The owner can paste the current to-do list directly. Accept unstructured text, h
 
 Propose tasks, projects, errands/shopping items, recurring routines, and reference notes without pretending every line is an actionable commitment. Keep explicit owner deadlines intact; mark inferred categories, suggested durations, and ambiguous dates as suggestions. Never invent a deadline to force a task into a plan. Ask only about ambiguity that affects an important next decision, rather than presenting a long form for every item.
 
-Show a compact review with edit, merge, keep-as-note, and ignore controls before committing a bulk import. Detect repeated pastes without silently deleting distinct tasks. Support undoing an import while preserving any subsequent user edits. Importing text does not authorize calendar writes, message sending, purchases, or AI dispatch. Feed accepted tasks into the weekly/daily planning flow without flooding Today with the entire backlog.
+Show a compact review with edit, merge, keep-as-note, and ignore controls before committing a bulk import. Detect repeated pastes without silently deleting distinct tasks. Similar names are not sufficient evidence of duplication: preserve separately confirmed appointments or tasks, and make any proposed merge reversible and reviewable. Support undoing an import while preserving any subsequent user edits. Importing text does not authorize calendar writes, message sending, purchases, or AI dispatch. Feed accepted tasks into the weekly/daily planning flow without flooding Today with the entire backlog.
 
 ## 4. Google/email accounts and source information
 
@@ -239,7 +253,17 @@ Team coordination is conditional on the owner having staff or contractors to man
 
 Use simple status labels such as On track, Needs attention, and Blocked with reasons. Color may reinforce labels, but should not carry meaning alone or create an alarming red home screen.
 
-## 9B. Permission policy and bounded autonomy
+## 9B. Personal profile and preference store
+
+The owner explicitly requires backend storage of personalized preferences. Implement a structured private profile/preferences store as the runtime source of truth, with editable Settings → My preferences. See `PREFERENCES.md` for the full design. This includes usual work/class/gym/household routines, planning rules, reminder settings, wake/bedtime targets, account boundaries, and dated exceptions. Keep tasks, plans, permission policies, and duration observations as linked but distinct records.
+
+The database can be local to the Mac initially under the selected architecture; “backend storage” does not itself authorize cloud transmission. Design eventual shared preference sync to the iPhone with device-scoped notification settings. Never persist real personal data as source-code constants or repository fixtures.
+
+Distinguish explicit owner rules, imported facts, learned estimates, proposed defaults, and unknown values. Preserve provenance, versions, effective dates, and correction history. Temporary weekly/daily changes override ordinary defaults only within their scope; they cannot override permissions or silently displace protected events and approved blocks. Learning from task duration must not silently change approval policies.
+
+Expose current values, origin, usual versus one-off changes, editing, reset/undo, and important conflicts. Use current records to assemble the relevant context for planning and AI operations. Changes trigger controlled re-evaluation of affected draft plans/reminders with auditing, not unapproved calendar mutations. Source content cannot grant itself permission to edit the profile.
+
+## 9C. Permission policy and bounded autonomy
 
 Distinguish product permissions from the development assistant's tooling permissions. Enforce product policy centrally for interactive actions, integrations, AI execution, and background jobs.
 
@@ -278,7 +302,7 @@ Design entity relationships for accounts, sources, projects, tasks, commitments,
 
 Phase 0 — foundation: preserve the design; confirm the few necessary setup facts; document integration feasibility; choose the smallest stack; establish local setup, authentication approach, data model, and roadmap.
 
-Phase 1 — useful installed daily app: implement installation/launch, the accepted navigation, persistent quick capture, reviewable paste-from-Notes onboarding, personal/household routines, task chains, projects, priorities, Today view, simplify mode, automatic flexible-task planning, approval-required errand proposals, weekly gym proposals, post-completion duration questions with a quiet durable queue, basic estimate adaptation, focus sessions, and the guided Sunday weekly-framework review with approval. Include a real local scheduled-reminder path and test its supported lifecycle states; design the data model for eventual Mac–iPhone sync, and validate live sync only when its service and iPhone client are implemented. Restarting the app must not lose tasks or preferences. Keep a simple manual schedule usable before account connections are ready. All visible controls must work or clearly explain their unavailable state.
+Phase 1 — useful installed daily app: implement installation/launch, the accepted navigation, persistent personal profile/preferences with editable settings, quick capture, reviewable paste-from-Notes onboarding, personal/household routines, task chains, projects, priorities, Today view, simplify mode, automatic flexible-task planning, approval-required errand proposals, weekly gym proposals, post-completion duration questions with a quiet durable queue, basic estimate adaptation, focus sessions, and the guided Sunday weekly-framework review with approval. Include a real local scheduled-reminder path and test its supported lifecycle states; design the data model for eventual Mac–iPhone sync, and validate live sync only when its service and iPhone client are implemented. Restarting the app must not lose tasks or preferences. Keep a simple manual schedule usable before account connections are ready. All visible controls must work or clearly explain their unavailable state.
 
 Phase 2 — connected daily assistance and reliable background operation: connect the first Google account, then a second; add calendar/email synchronization, source links, reply tracking, meeting briefs, follow-up drafts, and one real background notification channel. Verify cross-account isolation and reconnection. Keep LinkedIn capture usable even if direct integration is unavailable.
 
@@ -296,7 +320,11 @@ For every milestone, deliver working code, setup instructions, relevant checks, 
 
 ## 12. First implementation response
 
-Do not treat unfinished interview choices as approvals. Keep capability priorities provisional until reconciled with the owner. When implementation is authorized, briefly explain what exists and what the first milestone will produce. Do not re-ask the settled platform sequence, flexible-task autonomy, or retrospective-duration preference. Identify only unresolved setup questions needed now: Tuesday class-to-cardio logistics, Sunday evening review clock time/week boundary, exact evening/morning planning times and quiet hours, personal anchors, errand preferences, external-calendar write-back, sync infrastructure, household priorities, Claude business plan/admin access, device environment, first Google accounts, preferred reminder channel, and deployment/budget needs. Build independent foundation work while those answers are pending. Keep the owner’s experience simple and the full vision visible in the roadmap.
+The core brief is ready for implementation once the owner requests that step. Do not treat a readiness question as a request to launch the build. When implementation is requested, inspect the repository, propose the smallest suitable installed-app stack, and implement a working foundation in coherent increments.
+
+Begin with persistent profile/preferences and task capture/import review, the approved navigation, and a working Today screen; then add weekly/daily scheduling and its tested approval/reminder rules. Keep the broader roadmap intact. Resolve the three consequential decisions in the readiness section before the work that depends on them, but continue independent foundation work with synthetic data and honest disconnected states.
+
+Do not re-ask settled decisions or require a complete personal schedule before building configurable behavior. Routine timing details belong in onboarding/settings. Never interpret an unanswered question as permission for paid services, external calendar writes, personal-data transmission, or message sending. Report what works, what is simulated, and what remains unconnected in plain language.
 
 ## Documentation starting points — verify before implementation
 

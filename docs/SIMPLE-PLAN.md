@@ -7,7 +7,7 @@ The design you approved is still our starting point. It is currently a clickable
 ## The pieces
 
 1. **The app:** the calm screen you open to see what matters next.
-2. **The memory:** saves tasks, promises, routines, and your preferences.
+2. **The memory:** a private database saves tasks, promises, routines, and your preferences. “My preferences” lets you see and change what the app knows. “This week only” changes do not overwrite your usual routine.
 3. **The planner:** automatically fits flexible tasks around your existing calendar. It asks before blocking a long errand outing and adjusts gym plans week by week.
 4. **The learning:** asks “roughly how long?” when you mark something done. You can answer later; questions wait quietly in a queue. Your answers improve the next estimate.
 5. **The connections:** brings in email, calendars, and supported information from your AI accounts.
@@ -18,7 +18,7 @@ Some work may happen in a private background service so help continues when your
 
 ## What we're doing now
 
-We are refining the instructions and interviewing you before choosing the final technology or starting the actual app. The interview happens in small rounds.
+The core instructions are ready to build from. The app has not been built yet. We still need to choose where data lives, whether approved blocks appear in Google Calendar, and how reminders reach you. Smaller routine details can be chosen in the app’s settings.
 
 We have settled Mac first, iPhone later; automatic flexible-task scheduling with approval for large errands; and short duration questions after completion.
 

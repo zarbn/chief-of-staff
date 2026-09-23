@@ -1,6 +1,6 @@
 # Product interview — living decision record
 
-Status: requirements interview in progress. Do not treat suggested choices as confirmed preferences. Ask a few concrete questions at a time; keep later questions here rather than presenting a long questionnaire.
+Status: core product brief ready for a first implementation milestone; consequential setup decisions remain open. Further interviewing should focus on decisions needed for the next stage. Do not treat suggested choices as confirmed preferences. Ask a few concrete questions at a time; keep later questions here rather than presenting a long questionnaire.
 
 ## Confirmed by the owner
 
@@ -14,6 +14,7 @@ Status: requirements interview in progress. Do not treat suggested choices as co
 - Preserve the original daily brief, inbox/follow-up, calendar/meetings, commitments, operations, and AI-coordination vision.
 - Two Claude subscriptions, Business and Personal, each used for Chat, Code, and Cowork; one personal Codex account.
 - Multiple Google/email accounts; Google Calendar across multiple accounts is confirmed.
+- Personalized preferences must be stored in the app backend/database, with an editable profile; actual hosting remains undecided.
 - Existing to-do list is kept in Notes and can be pasted directly. Notes product is unspecified; paste-based onboarding avoids requiring a direct integration.
 
 ## Round 1 — answered and incorporated
@@ -63,6 +64,16 @@ The owner mentioned wanting lower and pull sessions shortened. No shorter target
 - Weekly framework guides nightly planning and morning adjustment; approved blocks stay protected.
 - Owner selected Sunday evening. Exact clock time is not specified. Upcoming Monday–Sunday remains the suggested dated coverage; do not treat it as an explicitly confirmed week boundary.
 
+## Personalized preferences — confirmed requirement
+
+The owner explicitly requested backend storage for personalized preferences. `PREFERENCES.md` defines structured private data, usual rules versus dated exceptions, provenance, learning versus explicit decisions, editing/reset, controlled replanning, and eventual sync. A local database can satisfy storage in the initial Mac app; the requirement does not decide cloud hosting. This belongs in the first implementation foundation.
+
+## Readiness review
+
+The main product behavior is defined. Three setup decisions deserve priority: local/private-cloud operation and budget; internal-only plans versus authorized Google Calendar write-back; and notification channels/quiet-time rules. Do not let lower-priority personal schedule questions delay independent app development once requested.
+
+Exact personal routine times remain editable onboarding settings. Provider-specific capabilities are verified at their integration milestone. Real task intake remains private; date/status ambiguities affect scheduling those items, not app-building readiness. Retain separately confirmed tasks even when labels appear similar.
+
 ## Follow-up interview topics — not yet asked
 
 - For errands: preferred days/locations, usual travel needs, outing approval details, and how to handle a newly added conflict.
@@ -73,7 +84,7 @@ The owner mentioned wanting lower and pull sessions shortened. No shorter target
 ## Round 3 — scope and onboarding
 
 - Which three outcomes make the first version worth using: daily planning, household routines, email follow-ups, meeting help, or AI-work coordination?
-- Answered: Google Calendar across multiple accounts, plus an existing Notes to-do list the owner can paste. Next: receive the list for private review and confirm account/calendar selection when connecting. No actual account connection or list import has happened yet.
+- Answered: Google Calendar across multiple accounts, plus an existing Notes to-do list the owner can paste. The owner has now pasted the list and it was organized privately in conversation. No application import or account connection has happened. Keep actual task contents and clarifications out of GitHub; confirm account/calendar selection when connecting.
 - Solo work, staff, contractors, or household sharing? Avoid adding collaboration complexity without a real use case.
 - For food/shopping: simple meal reminders and grocery list, or recipes, pantry information, budgets, and meal planning? Any constraints the owner wants recorded?
 - Which fields should be optional during capture and what feels like too much administration?
