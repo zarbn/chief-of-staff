@@ -18,13 +18,13 @@ Sources:
 - https://developers.openai.com/api/docs/guides/realtime-conversations
 - https://developers.openai.com/api/docs/pricing
 
-Hosted voice requires internet access and transmits audio and relevant context to the provider. A locally stored database does not imply all processing stays on the device. The owner has been asked whether this is acceptable; response pending. API access and a usage budget need separate configuration before live calls. No API charges, credentials, or audio transmission have been enabled during this requirements work.
+Hosted voice requires internet access and transmits audio and relevant context to the provider. A locally stored database does not imply all processing stays on the device. On September 24 the owner reaffirmed local storage. That does not explicitly settle whether online voice processing is acceptable; a focused clarification is pending. API access and a usage budget need separate configuration before live calls. No API charges, credentials, or audio transmission have been enabled during this requirements work.
 
 If the owner requires entirely on-device voice, investigate local speech recognition, synthesis, and reasoning alternatives separately. Do not imply they provide identical capability/quality or that offline speech recognition also makes reasoning offline.
 
 ## Intended experience
 
-Provide a clearly labeled Talk control and visible listening/processing/speaking states, with stop/mute and a text fallback. A keyboard shortcut or click-to-talk is the recommended initial interaction; a session that stays hands-free until ended is an alternative. The choice is being interviewed, and passive always-on listening has not been requested or authorized.
+Provide a clearly labeled Talk control and visible listening/processing/speaking states, with stop/mute and a text fallback. The owner selected an explicitly started hands-free conversation that remains active until they end it. A Start conversation button or shortcut begins the session; do not require holding a button or clicking for each utterance. Provide visible mute/unmute and End conversation controls plus a spoken end command. No passive always-on listening before a user-started session is authorized.
 
 Allow the owner to interrupt or correct speech. Keep concise spoken responses and a visible action receipt. Do not confuse stopping spoken playback with canceling a pending tool action: show actual action state and provide explicit cancellation where possible.
 
@@ -57,7 +57,7 @@ Raw audio need not be retained by the application; any retained transcript or co
 
 Keep API keys in protected local credential storage for a single-owner native app, with privileged networking/tool execution isolated from untrusted UI/model content. Do not embed a shared production secret in distributable clients. A future distributed phone app may need a different authenticated credential/session architecture.
 
-Before enabling paid voice, select an API budget and implement usage visibility, session timeout, spending safeguards, and a text-only fallback. Distinguish configured estimates from provider-reported billing. No cost quote is fixed by this document; current rates must be checked at implementation.
+Before enabling paid voice, select an API budget and implement usage visibility, spending safeguards, and a text-only fallback. Preserve the requested ongoing conversation across turns. Any inactivity/budget limit must be explained and configurable within provider constraints; do not silently end after each utterance. On sleep, loss of access/network, or session expiration, visibly pause/end or renew safely rather than showing a false listening state. Do not resume microphone capture after an explicitly ended session without a new start action. Distinguish configured estimates from provider-reported billing. No cost quote is fixed by this document; current rates must be checked at implementation.
 
 ## Implementation sequence and checks
 

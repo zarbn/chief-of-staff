@@ -30,7 +30,7 @@ Then we agree what the first version must do. The suggested starting point is da
 
 The proposed voice feature lets you speak a request, have the app understand it, and use the same task/email/calendar controls as typing. For example: “Add an errand,” “What’s next?” or “Draft a reply.” Sending a message still follows your approval rules.
 
-We would build this with supported voice APIs rather than export the ChatGPT app. A Talk button is the recommended starting point; invocation and online processing choices are still being confirmed.
+We would build this with supported voice APIs rather than export the ChatGPT app. You start a conversation once, then talk hands-free until you end it. Mute and End conversation stay visible. We are only clarifying whether the AI processing may happen online while saved data stays on your Mac.
 
 ## Three planning steps
 

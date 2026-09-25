@@ -73,8 +73,8 @@ The owner explicitly requested backend storage for personalized preferences. `PR
 - Keep the application and its database on the Mac for now.
 - Retain future iPhone support; a simpler viewing/basic-input/proactive-notification companion is acceptable. Do not require full desktop feature parity.
 - Add in-app voice for task operations, planning, and email drafting; the owner asked about using ChatGPT's voice/AI. Official API voice capabilities were checked; consumer-app/model export is not the documented integration approach.
-- Asked: is local storage with hosted AI audio/context processing and metered API costs acceptable, or must voice processing also stay on-device?
-- Asked: Talk button/keyboard shortcut or an explicitly started hands-free session until ended?
+- Owner reaffirmed local storage on September 24. Asked a narrower follow-up: may spoken requests and required context be processed online via paid API while saved app data remains local, or must processing also be on-device? This remains unresolved; do not infer consent either way.
+- Answered September 24: an explicitly started hands-free conversation that continues until the owner ends it. Provide mute/end controls; no per-utterance click or passive always-on listening.
 - No voice sessions, paid calls, microphone capture, account connections, or cloud deployment have been enabled. See `VOICE.md`.
 
 ## Readiness review
